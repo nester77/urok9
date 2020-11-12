@@ -1,7 +1,9 @@
 package academy.belhard;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -26,8 +28,10 @@ public class Main {
 
         PersonIOUtil.writePersons(FILE_NAME,persons);
 
-
-
+        System.out.println("После чтения из файла");
+        for (Person person : PersonIOUtil.readPersons(FILE_NAME)) {
+            System.out.println(person);
+        }
 
 
     }
