@@ -35,7 +35,7 @@ public class PersonIOUtil {
     }
 
 
-    public static List<Person> readPersons(String nameOfFile) {
+    public static List<Person> readPersons(String nameOfFile)  {
 
         List<Person>persons=new ArrayList<>();
 
@@ -48,17 +48,19 @@ public class PersonIOUtil {
 
         } catch (IOException e) {
         e.printStackTrace();
+
         }
+
+        try {
+            if (persons.isEmpty()) {
+                throw new EmptySourceException ("Не удалось провести чтение из файла или файл пуст");
+            }
+        }catch (EmptySourceException e){
+            e.printStackTrace();
+        }
+
 
         return persons ;
 
     }
 }
-    //Создайте в классе PersonIOUtil статический метод writePersons, который принимает 2 аргумента: название
-//        файла и коллекцию объектов класса Person. Реализуйте логику записи объектов Person в файл в этом методе
-//        С помощью PersonIOUtil запишите в файл созданные экземпляры класса Person
-//        Создайте в классе PersonIOUtil статический метод readPersons, который принимает 1 аргумент - название
-//        файла и возвращает коллекцию объектов Person. Реализуйте логику чтения из файла и построения объектов
-//        Person в этом методе. Если файл не существует или пустой, генерируйте исключение EmptySourceFileException
-//        С помощью PersonIOUtil прочитайте файл и сгенерируйте коллекцию объектов Person. Выведите ее в консоль
-//        Залить код в репозиторий и отправить ссылку на репозиторий преподавателю

@@ -9,6 +9,13 @@ class Address {
         this.city=city;
         this.street=street;
         this.numberOfHouse=numberOfHouse;
+       try {
+           if (city == null || street == null || numberOfHouse==0) {
+               throw new NullFieldException("Одно из полей равно null");
+           }
+       }catch (NullFieldException e){
+           e.printStackTrace();
+       }
     }
 
     public void setCity(String city) {

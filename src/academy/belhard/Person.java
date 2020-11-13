@@ -9,6 +9,14 @@ public class Person {
         this.firstName=firstName;
         this.lastName=lastName;
         this.address=address;
+        try {
+            if (firstName==null || lastName==null) {
+                throw new NullFieldException("Одно из полей равно null");
+            }
+        }catch (NullFieldException e){
+            e.printStackTrace();
+
+        }
     }
 
     public void setFirstName(String firstName) {
